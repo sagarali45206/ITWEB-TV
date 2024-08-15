@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITWeb | Android TV</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='https://www.itweb.live/favicon.ico' rel='icon' type='image/x-icon'/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .splash-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #6200ea, #3700b3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+            transition: opacity 1s ease-out;
+        }
+
+        .splash-screen .splash-content {
+            text-align: center;
+            color: white;
+        }
+
+        .splash-screen .splash-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .splash-screen .splash-content p {
+            font-size: 1.2rem;
+        }
+
+        /* Add animation for splash screen */
+        .splash-screen.fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-screen" id="splash-screen">
+        <div class="splash-content">
+            <h1>Welcome to ITWeb</h1>
+
+             <div class="card">
+                <img alt="ITWeb | The Tech Hub" height="71px; " id="Header1_headerimg" src="https://blogger.googleusercontent.com/img/a/AVvXsEh8IZE5OxkzmAQBoNG_H1eMsq6GljBZASOneQJF0sIxiRP6ahqBfcIS4dwEtOCSWhQJpIj5j_G3WPMHUvtrdbW8OIQxGfTuXjYbjDkJCJiiGwp-NSv6XzXp5NwQ_iZj6DlKv3FVPXBhQJLvfngJ5IfY4h_zKKHYAbwSqU2xcMGnrbRpby57Ah2QrF1Yhg=s150" style="display: block" width="150px; "><h3 style="color: black">Your Gateway to Live Entertainment</h3></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.getElementById('splash-screen');
+
+            // Simulate a loading delay
+            setTimeout(() => {
+                splashScreen.classList.add('fade-out');
+
+                // Redirect to another page after the fade-out transition
+                splashScreen.addEventListener('transitionend', () => {
+                    window.location.href = 'livetv.php'; // Change this to the path of your main page
+                });
+            }, 3000); // Adjust the timeout duration as needed
+        });
+    </script>
+</body>
+</html>
